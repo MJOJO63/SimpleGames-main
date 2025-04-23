@@ -9,9 +9,11 @@ public class Projectile3DController : MonoBehaviour
     public Rigidbody RB;
     
     //How fast do I fly?
-    public float Speed = 30;
+    public float Speed = 999;
     //How hard do I knockback things I hit?
-    public float Knockback = 10;
+    public float Knockback = 0;
+
+    public float Damage = 50;
 
     void Start()
     {
