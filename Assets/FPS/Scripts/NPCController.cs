@@ -14,7 +14,9 @@ public class NPCController : MonoBehaviour
     public float Health = 100;
     
     //Who do I walk towards?
-    public GameObject Target;
+    public Vector3 Target;
+    public float Timer = 0f;
+    public float DirectionChange = 2f;
 
     void Start()
     {
@@ -25,8 +27,17 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
+       
+        Timer =+ Time.deltaTime;
+
+        if (Timer >= DirectionChange)
+        {
+            Target = new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
+            Timer = 0f;
+        }
+        
         //Rotate to look at the player
-        transform.LookAt(Target.transform);
+        transform.LookAt(Target);
         //Make a temp velocity variable to calculate how I should move
         //By default, I keep my old momentum
         Vector3 vel = RB.linearVelocity;
@@ -41,6 +52,8 @@ public class NPCController : MonoBehaviour
         vel.y = RB.linearVelocity.y;
         //Plug it into my rigidbody
         RB.linearVelocity = vel;
+
+        
 
 
     }
