@@ -32,14 +32,14 @@ public class NPCController : MonoBehaviour
     }
 
     public void UpdateScore()
-    {
-        playerScoreText.text = "Score: " + Score;
+   {
+       playerScoreText.text = "Score: " + Score;
 
-    }
+   }
 
     private void Update()
     {
-        //playerScoreText.text = "Score: " + Score;
+       //playerScoreText.text = "Score: " + Score;
         Timer += Time.deltaTime;
 
         if (Timer >= DirectionChange)

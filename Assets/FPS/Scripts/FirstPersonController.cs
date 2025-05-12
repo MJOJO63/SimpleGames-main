@@ -15,6 +15,7 @@ public class FirstPersonController : MonoBehaviour
     public float MouseSensitivity = 1.65f;
     public float WalkSpeed = 10;
     public float JumpPower = 7;
+
     
     //A list of all the solid objects I'm currently touching
     public List<GameObject> Floors;
