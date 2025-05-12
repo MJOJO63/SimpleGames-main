@@ -12,7 +12,7 @@ public class FirstPersonController : MonoBehaviour
     public Projectile3DController ProjectilePrefab;
     
     //Character stats
-    public float MouseSensitivity = 1.65f;
+    public float MouseSensitivity = 1.6f;
     public float WalkSpeed = 10;
     public float JumpPower = 7;
 
