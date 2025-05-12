@@ -12,7 +12,7 @@ public class FirstPersonController : MonoBehaviour
     public Projectile3DController ProjectilePrefab;
     
     //Character stats
-    public float MouseSensitivity = 3;
+    public float MouseSensitivity = 2.5f;
     public float WalkSpeed = 10;
     public float JumpPower = 7;
     
@@ -58,7 +58,7 @@ public class FirstPersonController : MonoBehaviour
             move = move.normalized * WalkSpeed;
             
             //If I hit jump and am on the ground, I jump
-            if (JumpPower > 0 && Input.GetKeyDown(KeyCode.Space) && OnGround())
+            if (JumpPower > 0 && Input.GetKeyDown(KeyCode.Space))
                 move.y = JumpPower;
             else  //Otherwise, my Y velocity is whatever it was last frame
                 move.y = RB.linearVelocity.y;

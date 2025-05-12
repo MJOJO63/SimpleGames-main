@@ -19,6 +19,12 @@ public class Projectile3DController : MonoBehaviour
     {
         //When I spawn, I fly straight forwards at my Speed
         RB.linearVelocity = transform.forward * Speed;
+        
+    }
+
+    private void Update()
+    {
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision other)
