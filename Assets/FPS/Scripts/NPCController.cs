@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class NPCController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class NPCController : MonoBehaviour
     public float Timer = 0f;
     public float DirectionChange = 3f;
     public GameObject objectToSpawn;
+    public TextMeshPro playerScoreText;
 
     void Start()
     {
@@ -29,9 +31,15 @@ public class NPCController : MonoBehaviour
         //I just walk forever, for now.
     }
 
+    public void UpdateScore()
+    {
+        playerScoreText.text = "Score: " + Score;
+
+    }
+
     private void Update()
     {
-       
+        //playerScoreText.text = "Score: " + Score;
         Timer += Time.deltaTime;
 
         if (Timer >= DirectionChange)
@@ -66,7 +74,7 @@ public class NPCController : MonoBehaviour
     private void OnMouseDown()
     {
         
-        Health = Health - 50;
+        Health = Health - 100;
         //if()
 
         if (Health <= 0)
@@ -74,6 +82,7 @@ public class NPCController : MonoBehaviour
             Score += 100;
             Health = 100;
             transform.position = new Vector3(Random.Range(-35.0f, 35.0f),Random.Range(2f, 35.0f),Random.Range(-35.0f, 35.0f));
+            UpdateScore();
         }
         
     }
